@@ -1,0 +1,52 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js start
+
+PATH: 
+  /home/nuomi/.local/bin/:/home/nuomi/bin:/home/nuomi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/nuomi/Downloads/idea-IU-171.4249.39/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.9.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "name": "app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "nodemon index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.16.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit signal: SIGHUP
+  Command: sh
+  Arguments: -c nodemon index.js
+  Directory: /home/nuomi/MTI/JS/cours2/TP1/app
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/share/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/share/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/share/yarn/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
