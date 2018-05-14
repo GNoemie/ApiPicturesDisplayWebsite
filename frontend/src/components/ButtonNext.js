@@ -11,14 +11,13 @@ class ButtonNext extends React.Component {
         this.state = {
             cursor: 0,
             nb: 0
-          //callback: function() { props.callbackParent() }
         }
 
         this.onClick = this.onClick.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("will receive  " + nextProps.cursor);
+        //console.log("will receive  " + nextProps.cursor);
         this.setState({
           cursor: nextProps.cursor,
           nb:  nextProps.nb
@@ -26,13 +25,12 @@ class ButtonNext extends React.Component {
     }
      
     onClick() {
-        //this.state.callback();
         console.log("cursor" + this.state.cursor)
         this.props.dispatch(getNext(this.state.cursor, this.state.nb));
     }
 
     render() {
-        return <div><button onClick={this.onClick}>Miaou</button></div>
+        return <div><button onClick={this.onClick} className="btn" >Miaou</button></div>
     }
 }
 

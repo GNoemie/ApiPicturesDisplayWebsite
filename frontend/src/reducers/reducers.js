@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
-import { REQUEST_NEXT, RECEIVE_NEXT } from '../actions/actions';
+import { 
+    REQUEST_NEXT,
+    RECEIVE_NEXT, 
+    REQUEST_ADD, 
+    RECEIVE_ADD
+} from '../actions/actions';
 
 function position(state = {}, action) {
     switch (action.type) {
@@ -8,6 +13,11 @@ function position(state = {}, action) {
             return {
                 cursor: state.cursor + state.amount,
                 amount: state.amount
+            }
+        case REQUEST_ADD:
+            return {
+                cursor: 0,
+                amount: 15
             }
         default:
             return state;

@@ -21,7 +21,7 @@ class PhotoCollection extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-      console.log("will receive  " + nextProps.pics[0].picture);
+      //console.log("will receive  " + nextProps.pics[0].picture);
       this.setState({
         pics: nextProps.pics
       });
@@ -29,7 +29,8 @@ class PhotoCollection extends React.Component {
  
     render() {
       return(this.state.pics.map(function (pic, i) {
-        return <Photo key={i} index={pic.index} />
+        //console.log("effectif   " + pic.toSource());
+        return <Photo key={i} index={pic.index} path={pic.picture} />
       }))
     }
   }

@@ -7,6 +7,7 @@ function mapStateToProps(state) {
     const pics = state.pictures;
     const cursor = state.cursor;
     const nb = state.amount;
+    console.log("whyyy " + pics.toSource()) 
 
     return {
         pics,

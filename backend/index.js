@@ -31,6 +31,7 @@ app.post('/api/pictures', (req, res) => {
       "index": pictures.length
     }
     pictures.unshift(pic);
+    res.send();
   });
 
 app.delete('/api/pictures/:id', (req, res) => {
