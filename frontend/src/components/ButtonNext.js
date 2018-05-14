@@ -1,20 +1,34 @@
-import React from 'react'
-import { hot } from 'react-hot-loader'
+import React from 'react';
+import { hot } from 'react-hot-loader';
+
+import { connect } from 'react-redux';
+import { getNext } from '../actions/actions';
 
 
 class ButtonNext extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            miaou: "nyaa",
-          callback: function() { props.callbackParent() }
+            cursor: 0,
+            nb: 0
+          //callback: function() { props.callbackParent() }
         }
 
         this.onClick = this.onClick.bind(this);
     }
+
+    componentWillReceiveProps(nextProps) {
+        console.log("will receive  " + nextProps.cursor);
+        this.setState({
+          cursor: nextProps.cursor,
+          nb:  nextProps.nb
+        });
+    }
      
-    onClick() {;
-        this.state.callback();
+    onClick() {
+        //this.state.callback();
+        console.log("cursor" + this.state.cursor)
+        this.props.dispatch(getNext(this.state.cursor, this.state.nb));
     }
 
     render() {
@@ -22,4 +36,6 @@ class ButtonNext extends React.Component {
     }
 }
 
-export default hot(module)(ButtonNext);
+
+
+export default hot(module)(connect()(ButtonNext));

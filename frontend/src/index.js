@@ -4,4 +4,16 @@ import App from './components/App';
 
 console.log("Miaou !");
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+
+
+import { Provider } from 'react-redux';
+//import epipic from './reducers/reducers';
+import { store } from './store/store';
+import { getNext } from './actions/actions';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>, 
+  document.getElementById('root')
+);
