@@ -67,7 +67,39 @@ export function add(path) {
         }).then(function() {
             console.log("nya")
             dispatch(receiveAdd());
-            dispatch(getNext(0, 15))///BUG LE CURSOR N'EST PAS RESET
+            dispatch(getNext(0, 15));
+        });
+    }
+    console.log("ACTION");
+}
+
+
+//delete
+const requestDelete = function() {
+    return {
+        type: REQUEST_DELETE
+    }
+}
+
+const receiveDelete = function() {
+    return {
+        type: RECEIVE_DELETE,
+    }
+}
+
+export function del(id) {
+    console.log("dilite");
+    return (dispatch) => {
+        dispatch(requestDelete())
+
+        fetch('http://localhost:4242/api/pictures/' + id, {
+            headers: new Headers({
+                "Content-Type": "application/json"
+            }),
+            method: 'DELETE'
+        }).then(function() {
+            receiveDelete();
+            dispatch(getNext(0, 15));
         });
     }
     console.log("ACTION");

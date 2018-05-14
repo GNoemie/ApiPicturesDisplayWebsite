@@ -3,7 +3,9 @@ import {
     REQUEST_NEXT,
     RECEIVE_NEXT, 
     REQUEST_ADD, 
-    RECEIVE_ADD
+    RECEIVE_ADD,
+    REQUEST_DELETE, 
+    RECEIVE_DELETE
 } from '../actions/actions';
 
 function position(state = {}, action) {
@@ -14,7 +16,7 @@ function position(state = {}, action) {
                 cursor: state.cursor + state.amount,
                 amount: state.amount
             }
-        case REQUEST_ADD:
+        case REQUEST_ADD || REQUEST_DELETE:
             return {
                 cursor: 0,
                 amount: 15

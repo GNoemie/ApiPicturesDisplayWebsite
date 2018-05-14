@@ -30,7 +30,7 @@ class PhotoCollection extends React.Component {
     render() {
       return(this.state.pics.map(function (pic, i) {
         //console.log("effectif   " + pic.toSource());
-        return <Photo key={i} index={pic.index} path={pic.picture} />
+        return <Photo key={i} index={pic.index} path={pic.picture} id={i} />
       }))
     }
   }
