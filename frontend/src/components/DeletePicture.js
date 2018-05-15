@@ -19,6 +19,12 @@ class DeletePicture extends React.Component {
         this.props.dispatch(del(this.state.id));
     }
 
+    componentWillReceiveProps(p) {
+        this.setState({
+            id: p.id //CECI EST BIZARRE EXPLICATION SVP
+        })
+    }
+
     render() {
         return <button type="button" className="btn" onClick={this.onClick}>X</button>;
     }

@@ -24,25 +24,34 @@ app.get('/api/pictures', (req, res) => {
 
 });
 
+let newIndex = pictures.length;
+
 app.post('/api/pictures', (req, res) => {
     console.log("pooooost " + req.body.picture);
     let pic = {
       "picture": req.body.picture,
-      "index": pictures.length
+      "index": newIndex
     }
+    newIndex++;
     pictures.unshift(pic);
     res.send();
   });
 
 app.delete('/api/pictures/:id', (req, res) => {
-  let id = req.params.id;
-  console.log("delete " + id);
-  pictures.splice(parseInt(id), 1)
+  let index = req.params.id;
+  console.log("delete " + index);
+  let pos = pictures.findIndex(function(pic) {
+    return pic.index == index;
+  })
+  if (pos != undefined) {
+    pictures.splice(parseInt(pos), 1);
+    console.log(pos)
+  }
   res.send();
 });
 
 app.get('/', (req, res) => {
-res.send('Hello World!');
+  res.send('Hello World!');
 });
 
 // start your server

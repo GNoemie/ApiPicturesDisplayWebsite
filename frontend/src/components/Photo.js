@@ -35,7 +35,7 @@ class Photo extends React.Component {
         return (
             <div className="image">
                 <p>{ this.state.index }
-                    <DeletePicture id={this.state.id} />
+                    <DeletePicture id={ this.state.index } />
                 </p>
                 <img src={ this.state.path } />
             </div>
